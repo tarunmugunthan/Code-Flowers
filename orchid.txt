@@ -1,0 +1,67 @@
+float x1;
+float y1;
+float x2;
+float y2;
+float x3;
+float y3;
+float t = 0;
+float a = 50;
+float b = 30;
+float c = 40;
+
+void setup(){
+  background(0);
+  size(600, 600);
+  frameRate(30);
+}
+
+void draw(){
+  
+  translate(width/2, height/2);
+  stroke(255,0,255,75);
+  noFill();
+  strokeWeight(1);
+  
+  if(sqrt((x1-0)*(x1-0) + (y1-200)*(y1-200))<300){
+    line(x1,y1,0,200);}
+    
+  if(sqrt((x2-0)*(x2-0) + (y2-250)*(y2-250))>200){
+    line(x2,y2,0,250);}
+    
+   if(sqrt((0-x3)*(0-x3) + (-200-y3)*(-200-y3))>800){
+    line(0,-200,x3,y3);}
+    
+    stroke(255,0,255);
+  
+  ellipse(x1,y1,5+20*sin(3*t),5+20*sin(3*t));
+  
+  x1 = -1.5*a*sin(t);
+  y1 = a*cos(t);
+  
+  ellipse(x2,y2,2,10);
+  
+  x2 = b*sin(t);
+  y2 = -0.5*b*cos(t);
+  
+  fill(255,0,255);
+  
+  ellipse(x3,y3,0,15);
+  
+  x3 = -0.75*c*sin(t);
+  y3 = c*cos(t);
+  
+  
+ t = t+PI/72;
+ 
+ b = b + 5*sin(4*t); 
+ a = a + 10*sin(3*t);
+ c = c - 20*sin(3*t); 
+ 
+ //change +/- in the above three lines 
+ //to get different patterns.
+ 
+ fill(0,0,0,3);
+ noStroke();
+ rect(-width/2,-height/2,width,height);
+ 
+}
